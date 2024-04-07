@@ -1,0 +1,66 @@
+.chapters {
+    background-color: whitesmoke;
+
+}
+.chapters a:hover {
+    color: blue;
+}
+ 
+.chapters a {
+    display: inline-block;
+    padding: 15px;
+    margin: 0;
+}
+
+.pages a:hover {
+    color: orange;
+}
+
+.chapters div {
+    display: flex;
+    height: 100px;
+    margin: 0 auto;
+    max-width: 80%;
+    max-height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+ .pages a {
+    display: block;
+
+} 
+
+.text-info {
+    display: block;
+}
+
+.double-penis {
+    margin: 3% 10%;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-column-gap: 0;
+}
+.pages {
+    font-family: Arial, sans-serif; /* Шрифт */
+
+}
+
+.pages nav {
+    background-color: #f2f2f2; /* Цвет фона */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.pages nav a {
+    display: block; /* Делаем ссылки блочными элементами */
+    padding: 12px 20px; /* Отступы */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+    transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+}
+
+.pages nav a:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}
