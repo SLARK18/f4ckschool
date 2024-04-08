@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}TESTTESTTEST{% endblock %}
 {% block left_menu %}
-
+{{ super() }}
+    
         <div class="text-info">
             {{ html_stat | safe }}
         </div>
