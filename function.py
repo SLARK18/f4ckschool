@@ -34,4 +34,3 @@ def papki(way):
     # Сортируем список папок по времени создания
     folders.sort(key=lambda x: os.path.getctime(os.path.join(way, x)))
     return dict(zip(folders, [transliterate(i) for i in folders]))
-
