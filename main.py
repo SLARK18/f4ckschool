@@ -16,7 +16,7 @@ def hello():
 
 @app.route('/<chapter>/')
 def show_chapter(chapter):
-    return render_template("base_text_info.html", html_stat=open(f'templates\Начальные страницы глав\{list(inv_MENU_LIST.keys()).index(chapter) + 1}.html', encoding='utf-8').read(), menu_list=MENU_LIST)
+    return render_template("base_text_info.html", html_stat=open(f'templates\{list(inv_MENU_LIST.keys()).index(chapter) + 1}.html', encoding='utf-8').read(), menu_list=MENU_LIST)
 
 """
 @app.route('/<chapter>/<page>')
