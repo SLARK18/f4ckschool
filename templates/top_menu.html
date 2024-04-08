@@ -11,12 +11,9 @@
     <header>
         <div class="chapters">
             <div>
-                <a href="#">Глава первая</a>
-                <a href="#">Глава вторая</a>
-                <a href="#">Глава третья</a>
-                <a href="#">Шлюпка смешное</a>
-                <a href="#">Слово</a>
-                <a href="#">Глава Шестая</a>
+                {% for a, b in menu_list.items() %}
+                <a href="/{{ b }}/">{{ a }}</a>
+                {% endfor %}
             </div>
         </div>
     </header>
