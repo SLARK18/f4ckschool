@@ -1,0 +1,110 @@
+body {
+    background-color: #f6f7fb;
+    margin: 0;
+    margin-top: 100px;
+}
+
+.chapters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Устанавливаем z-index, чтобы убедиться, что блок находится поверх других элементов */
+    background-color: rgb(255, 255, 255);
+    height: 70px;
+    align-items: center;
+    font-family: Arial, sans-serif; /* Шрифт */
+    font-size: 19px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: height 0.5s;
+}
+.chapters a:hover {
+    color: #6b2bbe;
+}
+ 
+.chapters a {
+    color: #87898d;
+    display: inline-block;
+    padding: 15px;
+    margin: 0;
+}
+
+.chapters div {
+    display: flex;
+
+    margin: 0 auto;
+    max-width: 72%;
+    max-height: 50px;
+    justify-content: space-between;
+    padding-top: 10px;
+    transition: padding-top 0.5s;
+}
+
+.chapters div a {
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s;
+}
+
+
+ /* PAGES */
+
+.pages a:hover {
+    color: #a865ff;
+}
+
+.pages a {
+    display: block;
+
+} 
+
+
+.double-penis {
+    margin: 3% 14.5%;
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    grid-column-gap: 0;
+}
+.pages {
+    font-family: Arial, sans-serif; /* Шрифт */
+    
+
+}
+
+.pages nav {
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень */
+    padding: 20px 0px 25px 5px;
+}
+
+.pages nav a {
+    display: block; /* Делаем ссылки блочными элементами */
+    padding: 12px 20px ; /* Отступы */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+    transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+}
+
+.pages nav a:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}
+
+/* РЕДАКТИРОВАНИЕ ТЕКСТОВОГО ПОЛЯ */
+
+.text-info {
+    display: block;
+    background-color: white;
+    border-radius: 8px;
+    padding: 0px 40px 40px 40px;
+    margin-left: 20px;
+}
+.text-info p {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+.text-info h1 {
+    font-family:monospace;
+}
+img {
+    width: 100px;
+    height: 100px;
+}
