@@ -45,6 +45,4 @@ def htmli(way):
     # Сортируем список HTML-документов по времени создания
     html_files.sort(key=lambda x: os.path.getctime(os.path.join(way, x)))
 
-    return {file_name: transliterate(file_name) for file_name in html_files}
-
-print(htmli('templates\История развития'))
+    return {file_name.rstrip('.html'): transliterate(file_name).rstrip('.html') for file_name in html_files}

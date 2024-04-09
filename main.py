@@ -29,7 +29,7 @@ def show_chapter(chapter):
 def show_pages(chapter, page):
     page_dict = htmli(f'templates\{inv_MENU_LIST[chapter]}')
     inv_page_dict = {value: key for key, value in page_dict.items()}
-    return render_template("base_text_info.html", html_stat=open(f'templates\{inv_MENU_LIST[chapter]}\{inv_page_dict[page]}', encoding='utf-8').read(), menu_list=MENU_LIST, left_menu=page_dict, chapter=chapter)
+    return render_template("base_text_info.html", html_stat=open(f'templates\{inv_MENU_LIST[chapter]}\{inv_page_dict[page]}.html', encoding='utf-8').read(), menu_list=MENU_LIST, left_menu=page_dict, chapter=chapter)
 
 
 """
