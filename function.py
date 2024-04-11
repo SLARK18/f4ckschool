@@ -34,3 +34,15 @@ def papki(way):
     # Сортируем список папок по времени создания
     folders.sort(key=lambda x: os.path.getctime(os.path.join(way, x)))
     return dict(zip(folders, [transliterate(i) for i in folders]))
+
+
+def htmli(way):
+    all_items = os.listdir(way)
+
+    # Фильтруем только HTML-документы
+    html_files = [item for item in all_items if item.endswith('.html')]
+
+    # Сортируем список HTML-документов по времени создания
+    html_files.sort(key=lambda x: os.path.getctime(os.path.join(way, x)))
+
+    return {file_name.rstrip('.html'): transliterate(file_name).rstrip('.html') for file_name in html_files}

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for
 import os
 import glob
-from function import transliterate, papki
+from function import transliterate, papki, htmli
 
 
 MENU_LIST = papki('templates')
@@ -14,9 +14,23 @@ app = Flask(__name__)
 def hello():
     return render_template("base_text_info.html", html_stat=open(r'templates\История развития\Первые компьютерные сети.html', encoding='utf-8').read(), menu_list=MENU_LIST)
 
+@app.route('/proverka')
+def rtest():
+    return render_template("base_text_info.html", html_stat=open(r'templates\История развития\Первые компьютерные сети.html', encoding='utf-8').read(), menu_list=MENU_LIST)
+
+
 @app.route('/<chapter>/')
 def show_chapter(chapter):
-    return render_template("base_text_info.html", html_stat=open(f'templates\{list(inv_MENU_LIST.keys()).index(chapter) + 1}.html', encoding='utf-8').read(), menu_list=MENU_LIST)
+    page_dict = htmli(f'templates\{inv_MENU_LIST[chapter]}')
+    inv_page_dict = {value: key for key, value in page_dict.items()}
+    return render_template("base_text_info.html", html_stat=open(f'templates\{list(inv_MENU_LIST.keys()).index(chapter) + 1}.html', encoding='utf-8').read(), menu_list=MENU_LIST, left_menu=page_dict, chapter=chapter)
+
+@app.route('/<chapter>/<page>/')
+def show_pages(chapter, page):
+    page_dict = htmli(f'templates\{inv_MENU_LIST[chapter]}')
+    inv_page_dict = {value: key for key, value in page_dict.items()}
+    return render_template("base_text_info.html", html_stat=open(f'templates\{inv_MENU_LIST[chapter]}\{inv_page_dict[page]}.html', encoding='utf-8').read(), menu_list=MENU_LIST, left_menu=page_dict, chapter=chapter)
+
 
 """
 @app.route('/<chapter>/<page>')
