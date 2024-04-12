@@ -1,0 +1,15 @@
+{% extends 'top_menu.html' %}
+{% block content %}
+{{ super() }}
+    <div class="double-penis">
+        <div class="pages">
+            <nav>
+                {% for a, b in left_menu.items() %}
+                <a href="/{{ chapter }}/{{ b }}">{{ a }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+
+{% block left_menu %}{% endblock %}
+    </div>
+{% endblock %}
