@@ -8,24 +8,24 @@ MENU_LIST = papki('templates')
 inv_MENU_LIST = {value: key for key, value in MENU_LIST.items()}
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/')
+@application.route('/')
 def hello():
     return render_template("base_text_info.html", html_stat=open(r'templates\История развития\Первые компьютерные сети.html', encoding='utf-8').read(), menu_list=MENU_LIST)
 
-@app.route('/proverka')
+@application.route('/proverka')
 def rtest():
     return render_template("base_text_info.html", html_stat=open(r'templates\История развития\Первые компьютерные сети.html', encoding='utf-8').read(), menu_list=MENU_LIST)
 
 
-@app.route('/<chapter>/')
+@application.route('/<chapter>/')
 def show_chapter(chapter):
     page_dict = htmli(f'templates\{inv_MENU_LIST[chapter]}')
     inv_page_dict = {value: key for key, value in page_dict.items()}
     return render_template("base_text_info.html", html_stat=open(f'templates\{list(inv_MENU_LIST.keys()).index(chapter) + 1}.html', encoding='utf-8').read(), menu_list=MENU_LIST, left_menu=page_dict, chapter=chapter)
 
-@app.route('/<chapter>/<page>/')
+@application.route('/<chapter>/<page>/')
 def show_pages(chapter, page):
     page_dict = htmli(f'templates\{inv_MENU_LIST[chapter]}')
     inv_page_dict = {value: key for key, value in page_dict.items()}
@@ -33,7 +33,7 @@ def show_pages(chapter, page):
 
 
 """
-@app.route('/<chapter>/<page>')
+@application.route('/<chapter>/<page>')
 def show_page(chapter, page):
     html_files = glob.glob(os.path.join(f'templates/{chapter}', '*.html'))
     file_names = []
@@ -44,4 +44,4 @@ def show_page(chapter, page):
 """
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)

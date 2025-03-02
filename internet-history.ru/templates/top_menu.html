@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/huy_v_rot_styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="chapters">
+            <div>
+                {% for a, b in menu_list.items() %}
+                <a href="/{{ b }}/">{{ a }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </header>
+    {% block content %}{% endblock %}
+
+    <script>
+        // Получаем элемент верхнего меню
+        var menu = document.querySelector('.chapters');
+
+        // Запоминаем предыдущее положение прокрутки
+        var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Функция, которая будет вызываться при прокрутке страницы
+        window.addEventListener('scroll', function() {
+            // Получаем текущее положение прокрутки
+            var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Если текущее положение прокрутки больше предыдущего, значит страница прокручивается вниз
+            if (currentScroll > lastScrollTop) {
+                // Уменьшаем высоту меню
+                menu.style.height = '50px';
+                menu.querySelector('div').style.paddingTop = '0px';
+            } else {
+                // В противном случае, страница прокручивается вверх
+                // Увеличиваем высоту меню
+                menu.style.height = '70px';
+                menu.querySelector('div').style.paddingTop = '10px';
+            }
+
+            // Запоминаем текущее положение прокрутки для следующего сравнения
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+
+
+</body>
+</html>
